@@ -1,0 +1,32 @@
+    <div class="footer">
+        <div class="container-body">
+            <ul class="yq-links">
+                <li>Links：</li>
+                {list catid=49 pagesize=999 more=1 cache=36000}
+                <li><a href="{$t['lianjie']}" target="__bark">{$t['yingwenmingcheng']}</a></li>
+                {/list}
+            </ul>
+        </div>
+        <hr class="hr">
+        <div class="container-body">
+            <div class="copyright">
+                Copyright @ 2012 厦门稻美橡塑制品有限公司 技术支持：厦门万国云端网络科技有限公司  备案号：{$SITE_ICP}
+            </div>
+        </div>
+    </div>
+    <div class="contact-qq-list">
+        <h2>Online Service</h2>
+        <hr>
+        <ul>
+            {list catid=50 pagesize=999 more=1 cache=36000 order=listorder_asc}
+            <li><a href="http://wpa.qq.com/msgrd?v=3&uin={$t["QQ"]}&site=qq&menu=yes" target="__bark">{$t['title']}</a></li>
+            {/list}
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $("#goTop").on("click", function() {
+            $('body').animate( {scrollTop: 0}, 500);
+        });
+    </script>
+</body>
+</html>

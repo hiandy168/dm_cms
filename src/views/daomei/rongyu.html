@@ -1,0 +1,76 @@
+{php $indexc = 2;}
+{template ./base/cn-header.html}
+    <img src="{SITE_THEME}image/top-img1.jpg" class="top-bg">
+    <div class="top-child-menu">
+        <div class="container-body">
+            <a href="/index.php?c=content&a=list&catid=39" class="top-child-menu-btn">公司介绍</a>
+            <a href="/index.php?c=content&a=list&catid=40" class="top-child-menu-btn active">公司荣誉</a>
+            <a href="/index.php?c=content&a=list&catid=41" class="top-child-menu-btn">产品应用</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container-body">
+        <div class="rongyu-times">
+            <a href="" class="first-time-btn"><i class="fa fa-angle-left"></i></a>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {php $i = 0;}
+                    {list catid=40 pagesize=999 more=1 cache=36000 order=listorder_asc}
+                    <div class="swiper-slide">
+                        <a class="rongyu-time-item" onclick="selectexample({$i})">{$t['title']}</a>
+                    </div>
+                    {php $i = $i + 1;}
+                    {/list}
+                </div>
+            </div>
+            <a href="" class="last-time-btn"><i class="fa fa-angle-right"></i></a>
+            <div class="clear"></div>
+        </div>
+        <div class="rongyu-lists">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {php $i = 0;}
+                    {list catid=40 pagesize=999 more=1 cache=36000 order=listorder_asc}
+                    {php $images=string2array($t[tupianji]);}
+                    <div class="swiper-slide blue-slide">
+                        {loop $images["file"] $img} 
+                        <div class="rongyu-list-item">
+                            <img src="{$img} " alt="">
+                        </div>
+                        {/loop}
+                        <div class="clear"></div>
+                    </div>
+                    {/list}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{SITE_THEME}js/jquery-1.10.1.min.js"></script>
+    <script src="{SITE_THEME}js/idangerous.swiper2.7.6.min.js"></script>
+    <script>
+        var listSwiper = new Swiper('.rongyu-lists .swiper-container',{
+            simulateTouch: false,
+            calculateHeight: true
+        })
+        var mySwiper = new Swiper('.rongyu-times .swiper-container',{
+            calculateHeight: true,
+            centeredSlides: true,
+            slidesPerView: 7,
+            watchActiveIndex: true,
+            onSlideChangeStart: function(swiper){
+                listSwiper.swipeTo(swiper.activeIndex, 300);
+            }
+        });
+        $('.rongyu-times .first-time-btn').on('click', function(e){
+            e.preventDefault()
+            mySwiper.swipePrev()
+        })
+        $('.rongyu-times .last-time-btn').on('click', function(e){
+            e.preventDefault()
+            mySwiper.swipeNext()
+        });
+        function selectexample(index) {
+            mySwiper.swipeTo(index, 300);
+        }
+    </script>
+{template ./base/cn-footer.html}

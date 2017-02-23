@@ -1,0 +1,33 @@
+html, body {
+    font-family: "微软雅黑","Microsoft Yahei","MicrosoftYahei";
+    background-color: #fff;
+    margin: 0;
+    padding: 0;   
+}
+
+a {
+  color: #191919;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+  color: #E80017;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "微软雅黑","Microsoft Yahei","MicrosoftYahei";
+  color: #212121;
+  font-weight: 400;
+  margin: 0;
+}
+
+p, ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #848484;
+}
+
+.clear {
+    clear: both;
+}

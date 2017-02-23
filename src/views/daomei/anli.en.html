@@ -1,0 +1,40 @@
+{php $indexc = 4;}
+{template ./base/en-header.html}
+    <img src="{SITE_THEME}image/top-img2.jpg" class="top-bg">
+    <div class="top-child-menu">
+        <div class="container-body">
+            {php $infoId = $_GET['infoId'];}
+            {list catid=$catid pagesize=999 more=1 cache=36000}
+            {if $infoId==""}{php $infoId = $t['id'];}{/if}
+            <a href="/index.php?c=content&a=list&catid={$catid}&infoId={$t['id']}" {if $infoId == $t['id']}class="top-child-menu-btn active"{else}class="top-child-menu-btn"{/if}>{$t['title']}</a>
+            {/list}
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container-body">
+        <div class="product-list">
+            {list catid=$catid pagesize=999 more=1 cache=36000}
+            {if $t['id'] == $infoId}
+            {php $images=string2array($t[tupianji]);}
+            {php $i = 0;}
+            {loop $images["file"] $img} 
+            <a href="javascript:showInfo('{$img}');">
+                <img src="{$img}" alt="">{$index}
+                <span>{$images['alt'][$i]}</span>
+            </a>
+            {php $i = $i + 1;}
+            {/loop}
+            {/if}
+            {/list}
+            <div class="clear"></div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="{SITE_THEME}lib/touchTouch/touchTouch.css">
+    <script src="{SITE_THEME}js/jquery-1.10.1.min.js"></script>
+    <script src="{SITE_THEME}lib/touchTouch/touchTouch.js"></script>
+    <script>
+        function showInfo(img) {
+            showImageInfo([img]);
+        }
+    </script>
+{template ./base/en-footer.html}

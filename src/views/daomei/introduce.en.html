@@ -1,0 +1,18 @@
+{php $indexc = 2;}
+{template ./base/en-header.html}
+    <img src="{SITE_THEME}image/top-img1.jpg" class="top-bg">
+    <div class="top-child-menu">
+        <div class="container-body">
+            <a href="/index.php?c=content&a=list&catid=36" class="top-child-menu-btn active">ABOUT US</a>
+            <a href="/index.php?c=content&a=list&catid=37" class="top-child-menu-btn">Honor</a>
+            <a href="/index.php?c=content&a=list&catid=54" class="top-child-menu-btn">Application</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container-body">
+        <h2 class="container-title">ABOUT US</h2>
+        <div class="container-context">
+            {$cats[36][content]}
+        </div>
+    </div>
+{template ./base/en-footer.html}

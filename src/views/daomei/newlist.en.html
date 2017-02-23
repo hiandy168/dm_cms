@@ -1,0 +1,31 @@
+{php $indexc = 5;}
+{template ./base/en-header.html}
+<img src="{SITE_THEME}image/top-img5.jpg" class="top-bg">
+    <div class="top-child-menu">
+        <div class="container-body">
+            <a href="/index.php?c=content&a=list&catid={$catid}" class="top-child-menu-btn active">The News</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container-body">
+        <div class="news-list">
+            {list catid=$catid pagesize=10 page=$page more=1 cache=36000}
+            <a href="{$t['url']}" class="news-list-item">
+                <p class="news-list-time">{date("Y-m-d", $t['updatetime'])}</p>
+                <div class="news-list-item-logo">
+                    <img src="{$t['thumb']}" alt="">
+                </div>
+                <h2 class="news-list-item-name">{$t['title']}</h2>
+                <p class="news-list-item-introduce">
+                    {$t['description']}
+                </p>
+                <div class="clear"></div>
+            </a>
+            {/list}
+            <div style="text-align: center; margin-top: 20px;">
+                {$pagelist}
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+{template ./base/en-footer.html}

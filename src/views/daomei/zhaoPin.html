@@ -1,0 +1,63 @@
+{php $indexc = 0;}
+{php $yuYan = $_GET['yuYan'];}
+{if $yuYan == 'en'}
+{template ./base/en-header.html}
+{else}
+{template ./base/cn-header.html}
+{/if}
+<img src="{SITE_THEME}image/top-img3.jpg" class="top-bg">
+    <div class="top-child-menu">
+        <div class="container-body">
+            <a class="top-child-menu-btn active">{if $yuYan == 'en'}recruitment{else}人才招聘{/if}</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container-body">
+        <form class="recruit-from" method="post" action="/index.php?c=form&a=post&modelid=11&cid=">
+            <h2>{if $yuYan == 'en'}Resume writing{else}填写简历{/if}</h2>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Name{else}姓名{/if}：</label>
+                <input type="text" class="recruit-from-item-input" name="data[xingming]">
+            </div>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Gender{else}性别{/if}：</label>
+                <input type="radio" class="recruit-from-item-radio" name="data[xingbie]" value="男"> <span>{if $yuYan == 'en'}Man{else}男{/if}</span>
+                <input type="radio" class="recruit-from-item-radio" name="data[xingbie]" value="女"> <span>{if $yuYan == 'en'}Female{else}女{/if}</span>
+            </div>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Birth Date{else}出生时间{/if}：</label>
+                <input type="text" class="recruit-from-item-input" name="data[chushengshijian]">
+            </div>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Position{else}应聘职位{/if}：</label>
+                <input type="text" class="recruit-from-item-input" name="data[yingpinzhiwei]">
+            </div>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Speciality{else}专业{/if}：</label>
+                <input type="text" class="recruit-from-item-input" name="data[zhuanye]">
+            </div>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Graduation Date{else}毕业时间{/if}：</label>
+                <input type="text" class="recruit-from-item-input" name="data[biyeshijian]">
+            </div>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}School{else}毕业院校{/if}：</label>
+                <input type="text" class="recruit-from-item-input" name="data[biyeyuanxiao]">
+            </div>
+            <div class="recruit-from-item">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Phone{else}联系电话{/if}：</label>
+                <input type="text" class="recruit-from-item-input" name="data[lianxidianhua]">
+            </div>
+            <div class="recruit-from-textarea">
+                <label for="" class="recruit-from-item-title">(<span style="color:rgb(255, 0, 0); ">*</span>){if $yuYan == 'en'}Work Experience{else}工作经历{/if}：</label>
+                <textarea rows="20" name="data[gongzuojingli]"></textarea>
+            </div>
+            <div class="clear"></div>
+            <input type="submit" name="submit" class="sub-btn" value="{if $yuYan == 'en'}Submit{else}提交{/if}">
+        </form>
+    </div>
+{if $yuYan == 'en'}
+{template ./base/en-footer.html}
+{else}
+{template ./base/cn-footer.html}
+{/if}

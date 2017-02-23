@@ -1,0 +1,39 @@
+{php $indexc = 5;}
+{template ./base/cn-header.html}
+    <img src="{SITE_THEME}image/top-img4.jpg" class="top-bg">
+    <div class="top-child-menu">
+        <div class="container-body">
+            <a href="/index.php?c=content&a=list&catid={$catid}" class="top-child-menu-btn active">新闻中心</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="container-body">
+        <h2 class="container-title">{$title}</h2>
+        <ul class="container-author-info">
+            <li>作者：{$username}</li>
+            <li>发布日期：{date("Y-m-d H:i:s", $updatetime)}</li>
+            <li>浏览次数：{$hits}</li>
+        </ul>
+        <div class="container-context" style="margin-bottom: 30px;">
+            {$content}
+        </div>
+        <div style="height: 60px;">
+            <!-- JiaThis Button BEGIN -->
+            <div class="jiathis_style_32x32">
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                <a class="jiathis_button_weixin"></a>
+                <a class="jiathis_button_renren"></a>
+                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                <a class="jiathis_counter_style"></a>
+            </div>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+        </div>
+        <hr>
+        {if $prev_page}<div style="margin-bottom: 8px;"><strong>上一篇：</strong><a href="{$prev_page['url']}">{$prev_page['title']}</a></div>{/if}
+        {if $next_page}<div><strong>下一篇：</strong><a href="{$next_page['url']}">{$next_page['title']}</a></div>{/if}
+        <div style="margin-bottom: 50px;"></div>
+    </div>
+{template ./base/cn-footer.html}

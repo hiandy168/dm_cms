@@ -1,0 +1,62 @@
+{php $indexc = 3;}
+{template ./base/en-header.html}
+    <img src="{SITE_THEME}image/top-img6.jpg" class="top-bg">
+        <div class="top-child-menu">
+        <div class="container-body">
+            {php $data=getCatNav($parentid);}
+            {loop $data $t}
+            <a href="/index.php?c=content&a=list&catid={$t['catid']}" class="top-child-menu-btn {if $catid == $t['catid']}active{/if}">{$t['catname']}</a>
+            {/loop}
+            <div class="clear"></div>
+        </div>
+    </div>
+    {php $arrs = array();}
+    {list catid=$catid pagesize=8 page=$page more=1 cache=36000 pagerule=pageruleother}
+    {php $arrs[] = $t;}
+    {/list}
+    <div class="container-body">
+        {$pagelist}
+    </div>
+    <div class="container-body">
+        <div class="product-list">
+            {loop $arrs $t}
+            <a href="javascript:showInfo({$t['id']});">
+                <img src="{$t['thumb']}" alt="">
+                <span>{$t['title']}</span>
+            </a>
+            {/loop}
+            {list catid=$catid pagesize=8 page=$page more=1 cache=36000}
+            <div class="product-list-info" id="product{$t['id']}">
+                <img src="{$t['thumb']}" alt="">
+                <ul>
+                    <li>Category：{$t['chanpinleibie']}</li>
+                    <li>Thickness：{$t['chanpinhoudu']}</li>
+                    <li>Density：{$t['chanpinmidu']}</li>
+                    <li>Color：{$t['chanpinyanse']}</li>
+                    <li>Width：{$t['zuidafukuan']}</li>
+                    <li>Height：{$t['biaozhunchangdu']}</li>
+                    <li>surface processing：{$t['biaomianchuli']}</li>
+                    <li>wrapper way：{$t['baozhuangfangshi']}</li>
+                    <li>Transport way：{$t['yunshufangshi']}</li>
+                    <li>payment way：{$t['jiesuanfangshi']}</li>
+                    <li>Manufacturers：{$t['shengchanchangshang']}</li>
+                    <li style="padding-top: 20px; text-align: center;">
+                        <a href="javascript:closeInfo({$t['id']});">Close</a>
+                    </li>
+                </ul>
+            </div>
+            {/list}
+            <div class="clear"></div>
+        </div>
+    </div>
+    <script src="{SITE_THEME}js/jquery-1.10.1.min.js"></script>
+    <script>
+        function showInfo(id) {
+            $(".product-list-info").css("display", "none");
+            $("#product" + id).css("display", "block");
+        }
+        function closeInfo(id) {
+            $("#product" + id).css("display", "none");
+        }
+    </script>
+{template ./base/en-footer.html}

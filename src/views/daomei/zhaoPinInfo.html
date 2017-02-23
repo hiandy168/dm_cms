@@ -1,0 +1,50 @@
+	<link href="{ADMIN_THEME}images/table_form.css" rel="stylesheet" type="text/css" />
+	<link href="{ADMIN_THEME}images/dialog.css" rel="stylesheet" type="text/css" />
+
+    <div id="content">
+<div class="container">
+	<div class="one">
+		<!--begin-->
+		<div class="piclist">
+			<div class="item-list">
+				<form action="{url('form/post',array('modelid'=>$modelid, 'cid'=>$cid))}" method="post">
+				<table width="100%" class="table_form " style="width: 800px;margin: 100px auto;">
+				<tr>
+					<th>姓名：</th>
+                    <td>{$xingming}</td>
+                    <th>性别：</th>
+                    <td>{$xingbie}</td>
+				</tr>
+                <tr>
+					<th>出生时间：</th>
+                    <td>{$chushengshijian}</td>
+                    <th>应聘职位：</th>
+                    <td>{$yingpinzhiwei}</td>
+				</tr>
+                <tr>
+					<th>专业：</th>
+                    <td>{$zhuanye}</td>
+                    <th>毕业时间：</th>
+                    <td>{$biyeshijian}</td>
+				</tr>
+                <tr>
+					
+				</tr>
+                <tr>
+					<th>毕业院校：</th>
+                    <td>{$biyeyuanxiao}</td>
+                    <th>联系电话：</th>
+                    <td>{$lianxidianhua}</td>
+				</tr>
+                <tr>
+					<th>工作经历：</th>
+                    <td colspan="3">{$gongzuojingli}</td>
+				</tr>
+				</table>
+				</form>
+			</div>
+		</div>
+		<!--end-->
+	</div>
+</div>
+</div>
