@@ -6,10 +6,10 @@ if (!defined('IN_FINECMS')) exit();
  */
 return array(
 
-	'host'     => 'localhost', 
-	'username' => 'root', 
-	'password' => '123456', 
-	'dbname'   => 'finecmsdb', 
+	'host'     => 'mysql.sql141.eznowdata.com', 
+	'username' => 'sq_xmdaxszp', 
+	'password' => 'xmdaxszpyxgs', 
+	'dbname'   => 'sq_xmdaxszp', 
 	'prefix'   => 'fn_', 
 	'charset'  => 'utf8', 
 	'port'     => '3306', 
